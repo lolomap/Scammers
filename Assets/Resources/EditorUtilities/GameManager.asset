@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c2cd93842efa1948a5374bd008edd6c, type: 3}
+  m_Name: GameManager
+  m_EditorClassIdentifier: 
+  Global:
+    FrameRateLocked: 0
+  UI:
+    AnimationDurationSec: 0
+    AnimationScale: 0
+    AnimationShakeStrength: 0
+    AnimationDelaySec: 0
+    PopUpDuration: 0
