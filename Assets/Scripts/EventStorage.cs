@@ -32,13 +32,9 @@ public class EventStorage
         _eventQueue = new();
         
         _events.AddRange(LoadFile("Events/Common.events"));
-        _events.AddRange(LoadFile("Events/StartInfo.events"));
-        _events.AddRange(LoadFile("Events/SouthWar.events"));
-        
+
         _timedEvents = LoadFile("Events/Story.events");
-        ResourceLoader.AddGlossaryLinks(_events);
-        ResourceLoader.AddGlossaryLinks(_timedEvents);
-        
+
         _failEvents = LoadFile("Events/Fail.events");
         _winEvents = LoadFile("Events/Win.events");
     }

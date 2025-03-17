@@ -41,7 +41,7 @@ public class GameManager : ScriptableObject
 		PlayerStats = new();
 		PlayerStats.Init();
 		
-		ResourceLoader.ReloadGlossary();
+		//ResourceLoader.ReloadGlossary();
 		
 		EventStorage = new();
 		EventStorage.Load();

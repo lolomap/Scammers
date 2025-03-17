@@ -11,8 +11,7 @@ namespace UI
         public TMP_Text EventDescriptionBoxDummy;
         public TMP_Text EventDescription;
         public ScrollRect EventDescriptionScroll;
-        public TMP_Text EventOptionTitle;
-        //TODO: public RoundList EventOptionsList;
+        public ButtonList EventOptionsList;
         public Image EventPicture;
         //public AudioSource EventSound;
         
@@ -25,7 +24,7 @@ namespace UI
         {
             GameManager.EventStorage.Init();
             
-            //TODO: OptionIcon.SelectOption += OnSelectOption;
+            OptionButton.Select += OnSelectOption;
         }
 
         private void Start()
@@ -45,8 +44,6 @@ namespace UI
         {
             if (!_selectedOption.IsAvailable(out List<Flag> blockedFlags))
             {
-                //TODO: ((OptionIcon) EventOptionsList.GetSelected()).PlayAnimation();
-
                 foreach (Flag flag in blockedFlags)
                 {
                     TaggedValue.AnimateAll(flag.Type, UIGenericAnimation.Animation.ButtonShake);
@@ -86,7 +83,7 @@ namespace UI
             return true;
         }
 
-        public void AcceptRestart()
+        private void AcceptRestart()
         {
             GameManager.Restart();
             GameManager.EventStorage.Init();
@@ -94,8 +91,8 @@ namespace UI
             UpdateCard();
             GameManager.PlayerStats.UpdateUI();
         }
-        
-        public void AcceptOption()
+
+        private void AcceptOption()
         {
             // Process long events
             if (_tldrData != null || Data.TLDR is {Count: > 0})
@@ -142,17 +139,8 @@ namespace UI
             TaggedValue.ClearPreviewAll();
             
             _selectedOption = option;
-            EventOptionTitle.text = option.Title;
-
-            // Preview all modifiers of current option
-            if (option.Modifiers != null)
-            {
-                foreach (Modifier modifier in option.Modifiers)
-                {
-                    TaggedValue.PreviewAll(modifier.Type,
-                        GameManager.PlayerStats.GetStat(modifier.Type) + modifier.Value);
-                }
-            }
+            Debug.Log($"Selected option: {option.Title}");
+            AcceptOption();
         }
 
         private void UpdateCard()
@@ -166,19 +154,8 @@ namespace UI
             if (EventPicture.sprite == null)
                 EventPicture.sprite = ResourceLoader.GetResource<Sprite>("Icons/Events/Default");
 
-            // TODO:
-            /*List<RoundListElement> list = new();
-
             Data.Options ??= new() {new() {Title = "Далее"}};
-            foreach (Option option in Data.Options)
-            {
-                OptionIcon prefab = ResourceLoader.GetResource<OptionIcon>("Prefabs/OptionIcon");
-                OptionIcon obj = Instantiate(prefab);
-                obj.Data = option;
-                list.Add(obj);
-            }
-
-            EventOptionsList.Elements = list;*/
+            EventOptionsList.Options = Data.Options;
 
             /*AudioClip categorySound = ResourceLoader.GetResource<AudioClip>("Audio/Events/" + Data.Category);
             if (categorySound != null)

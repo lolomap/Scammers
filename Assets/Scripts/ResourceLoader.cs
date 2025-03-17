@@ -7,8 +7,8 @@ public static class ResourceLoader
 {
 	private static readonly Dictionary<string, Object> _resources = new();
 
-	private static Dictionary<string, string> _glossary = new();
-	private static Dictionary<string, string> _glossaryLinks = new();
+	/*private static Dictionary<string, string> _glossary = new();
+	private static Dictionary<string, string> _glossaryLinks = new();*/
 
 	public static T GetResource<T>(string path, bool force = false) where T : Object
 	{
@@ -19,6 +19,7 @@ public static class ResourceLoader
 		return (T)result;
 	}
 
+	/*
 	public static Dictionary<string, string> GetAdIds()
 	{
 		return JsonConvert.DeserializeObject<Dictionary<string, string>>(Resources.Load<TextAsset>("AdIds").text);
@@ -61,4 +62,6 @@ public static class ResourceLoader
 				AddGlossaryLinks(gameEvent.TLDR);
 		}
 	}
+	
+	*/
 }
