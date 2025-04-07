@@ -1,0 +1,21 @@
+﻿[
+	{
+		"Description": "2 | This is some test text for description. If you can see it, the event system loaded this successfully",
+
+		"Options": [
+			{"Title": "Option A"},
+			{"Title": "Option B"},
+			{"Title": "Option C"}
+		]
+	},
+	{
+		"Description": "2 | Test event 2. If you can see it, simple sequence processing works",
+
+		"Options": [
+			{"Title": "Option AA"},
+			{"Title": "Option BB"},
+			{"Title": "Option CC"},
+			{"Title": "Option DD"}
+		]
+	}
+]

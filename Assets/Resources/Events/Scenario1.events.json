@@ -1,6 +1,6 @@
 ﻿[
 	{
-		"Description": "This is some test text for description. If you can see it, the event system loaded this successfully",
+		"Description": "1 | This is some test text for description. If you can see it, the event system loaded this successfully",
 
 		"Options": [
 			{"Title": "Option A"},
@@ -9,7 +9,7 @@
 		]
 	},
 	{
-		"Description": "Test event 2. If you can see it, simple sequence processing works",
+		"Description": "1 | Test event 2. If you can see it, simple sequence processing works",
 
 		"Options": [
 			{"Title": "Option AA"},

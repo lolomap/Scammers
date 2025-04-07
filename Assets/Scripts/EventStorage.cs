@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Newtonsoft.Json;
-using UI;
 using Random = UnityEngine.Random;
 
 public class EventStorage
@@ -30,13 +29,14 @@ public class EventStorage
         _events = new();
         _timedEvents = new();
         _eventQueue = new();
-        
-        _events.AddRange(LoadFile("Events/Common.events"));
-
-        _timedEvents = LoadFile("Events/Story.events");
 
         _failEvents = LoadFile("Events/Fail.events");
         _winEvents = LoadFile("Events/Win.events");
+    }
+
+    public void LoadScenario(string name)
+    {
+        _timedEvents = LoadFile($"Events/{name}.events");
     }
 
     public void Load(List<GameEvent> events, List<GameEvent> timedEvents,
