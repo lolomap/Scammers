@@ -12,7 +12,7 @@ namespace UI
 		private Button _button;
 		private TMP_Text _title;
 
-		private void Awake()
+		private void Start()
 		{
 			_button = GetComponentInChildren<Button>();
 			_title = GetComponentInChildren<TMP_Text>();

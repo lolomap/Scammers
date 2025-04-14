@@ -1,0 +1,14 @@
+﻿[
+	{
+		"Category": "Cat1",
+		"Scenarios": [
+			"Scenario1"
+		]
+	},
+	{
+		"Category": "Cat2",
+		"Scenarios": [
+			"Scenario2"
+		]
+	}
+]
