@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Text.RegularExpressions;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -17,6 +19,59 @@ public static class ResourceLoader
 		result = Resources.Load<T>(path);
 		_resources[path] = result;
 		return (T)result;
+	}
+
+	/// <summary>
+	/// Loads JSON resource from persistent storage or save it in storage from build Resources.
+	/// </summary>
+	/// <param name="path">Path to the resource, same for Resources and PersistentDataPath</param>
+	/// <returns>Deserialized JSON resource as T</returns>
+	public static T GetPersistentJson<T>(string path)
+	{
+		string filePath = Application.persistentDataPath + "/" + path + ".json";
+		string rawData;
+		T result = default;
+
+		bool loadedFromStorage = false;
+		if (File.Exists(filePath))
+		{
+			rawData = File.ReadAllText(filePath);
+			try
+			{
+				result = JsonConvert.DeserializeObject<T>(rawData);
+				loadedFromStorage = true;
+			}
+			catch
+			{
+				Debug.LogWarning($"Failed to load persistent file: {filePath}");
+			}
+		}
+		
+		if (!loadedFromStorage) // If file is failed to load from storage, load it from resources and save in storage
+		{
+			TextAsset asset = GetResource<TextAsset>(path);
+			if (asset != null)
+			{
+				rawData = asset.text;
+				Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
+				File.WriteAllText(filePath, rawData);
+				result = JsonConvert.DeserializeObject<T>(rawData);
+			}
+			else return result;
+		}
+
+		return result;
+	}
+
+	/// <summary>
+	/// Write data to persistent storage.
+	/// </summary>
+	/// <param name="path">If object can be loaded from Resources, path should be the same</param>
+	/// <param name="data">Target object</param>
+	public static void SavePersistent<T>(string path, T data)
+	{
+		string filePath = Application.persistentDataPath + "/" + path + ".json";
+		File.WriteAllText(filePath, JsonConvert.SerializeObject(data));
 	}
 
 	/*

@@ -1,0 +1,14 @@
+{
+	"api": {
+		"url": "",
+		"cert": ""
+	},
+	"links":{
+		"website": ""
+	},
+	
+	"user": {
+		"id": "",
+		"jwt_token": ""
+	}
+}

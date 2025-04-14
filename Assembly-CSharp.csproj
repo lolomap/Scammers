@@ -47,22 +47,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\AnimatedBar.cs" />
+    <Compile Include="Assets\Scripts\TestConfiguration.cs" />
     <Compile Include="Assets\Scripts\ResourceLoader.cs" />
     <Compile Include="Assets\Scripts\UI\OptionButton.cs" />
     <Compile Include="Assets\Scripts\UI\TaggedValue.cs" />
     <Compile Include="Assets\Scripts\UI\ScenarioButton.cs" />
     <Compile Include="Assets\Scripts\ExpressionEvaluator.cs" />
     <Compile Include="Assets\Scripts\EventStorage.cs" />
+    <Compile Include="Assets\Scripts\WebAPI.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\UI\SegmentBar.cs" />
     <Compile Include="Assets\Scripts\BuildScriptableObject.cs" />
     <Compile Include="Assets\Scripts\UI\EventCard.cs" />
+    <Compile Include="Assets\Scripts\Configuration.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonList.cs" />
     <Compile Include="Assets\Scripts\UI\UIGenericAnimation.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameEvent.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\Resources\TestConfiguration.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Resources\Events\Win.events.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
@@ -83,6 +87,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Resources\Configuration.json" />
     <None Include="Assets\Resources\Events\Scenario1.events.json" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Resources\StatsConfig.json" />

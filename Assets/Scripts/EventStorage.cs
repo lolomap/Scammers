@@ -20,8 +20,7 @@ public class EventStorage
 
     private static List<GameEvent> LoadFile(string path)
     {
-        TextAsset raw = ResourceLoader.GetResource<TextAsset>(path);
-        return JsonConvert.DeserializeObject<List<GameEvent>>(raw.text);
+        return ResourceLoader.GetPersistentJson<List<GameEvent>>(path);
     }
     
     public void Load()
